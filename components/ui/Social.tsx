@@ -1,36 +1,49 @@
-import Link from "next/link"
+import Link from "next/link";
+import { FaGithub, FaLinkedin, FaDiscord, FaInstagram } from "react-icons/fa";
+import { FC } from "react";
 
-import { FaGithub, FaLinkedin, FaDiscord, FaInstagram } from "react-icons/fa"
-
-const socials = [
-    {
-        icon: <FaGithub />,
-        path: "https://github.com/tomuthu-engineer/"
-    },
-    {  
-        icon: <FaLinkedin />,
-        path: "https://www.linkedin.com/in/tomuthu-engineer/"
-    },
-    {
-        icon: <FaDiscord />,
-        path: "https://discordapp.com/users/jmpandi "
-    },
-    {
-        icon: <FaInstagram />,
-        path: ""
-    }
-]
-
-const Social = ({ containerStyles, iconStyles }) => {
-    return (
-        <div className={containerStyles}>
-            {socials.map((item, index) => {
-                return <Link key={index} href={item.path}  className={iconStyles}>
-                    {item.icon}
-                </Link>
-            })}
-        </div>
-    )
+// Type definition for the socials array
+interface SocialItem {
+  icon: JSX.Element;
+  path: string;
 }
 
-export default Social
+// Social media links array with types
+const socials: SocialItem[] = [
+  {
+    icon: <FaGithub />,
+    path: "https://github.com/tomuthu-engineer/",
+  },
+  {
+    icon: <FaLinkedin />,
+    path: "https://www.linkedin.com/in/tomuthu-engineer/",
+  },
+  {
+    icon: <FaDiscord />,
+    path: "https://discordapp.com/users/jmpandi",
+  },
+  {
+    icon: <FaInstagram />,
+    path: "",
+  },
+];
+
+// Props type definition for the Social component
+interface SocialProps {
+  containerStyles: string;
+  iconStyles: string;
+}
+
+const Social: FC<SocialProps> = ({ containerStyles, iconStyles }) => {
+  return (
+    <div className={containerStyles}>
+      {socials.map((item, index) => (
+        <Link key={index} href={item.path} className={iconStyles}>
+          {item.icon}
+        </Link>
+      ))}
+    </div>
+  );
+};
+
+export default Social;
