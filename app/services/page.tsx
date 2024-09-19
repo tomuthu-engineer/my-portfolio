@@ -8,28 +8,29 @@ const services = [
   {
     num: "01",
     title: 'Web Development',
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas quia distinctio iusto, placeat vitae voluptates!',
-    href: ""
+    description: 'Building responsive websites with modern technologies like HTML, CSS, JavaScript, React, and Vue.js.',
+    href: "https://example.com/web-development"
   },
   {
     num: "02",
     title: 'App Development',
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas quia distinctio iusto, placeat vitae voluptates!',
-    href: ""
+    description: 'Creating mobile and web apps using Swift, Kotlin, Flutter, and React Native.',
+    href: "https://example.com/app-development"
   },
   {
     num: "03",
-    title: 'UI & UX Development',
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas quia distinctio iusto, placeat vitae voluptates!',
-    href: ""
+    title: 'UI & UX Design',
+    description: 'Designing intuitive interfaces with Figma, Sketch, and Adobe XD, focusing on user research and usability.',
+    href: "https://example.com/ui-ux-design"
   },
   {
     num: "04",
-    title: 'Web Development',
-    description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas quia distinctio iusto, placeat vitae voluptates!',
-    href: ""
+    title: 'Digital Marketing',
+    description: 'Boosting online presence with SEO, content marketing, social media, and PPC strategies.',
+    href: "https://example.com/digital-marketing"
   },
 ]
+
 
 
 const Services = () => {

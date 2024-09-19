@@ -14,7 +14,7 @@ import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/comp
 
 const about = [{
   title: 'About me',
-  description: "orem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis vero sint temporibus atque exercitationem nam! ",
+  description: "I'm a passionate developer with a focus on creating elegant and functional digital experiences. I thrive on solving complex problems and am dedicated to continuous learning and improvement.",
   info: [
     {
       fieldName: "Name",
@@ -53,33 +53,44 @@ const about = [{
 }]
 
 const education = [{
-  icon: "",
-  title: "My education",
-  description: "orem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis vero sint temporibus atque exercitationem nam! ",
+  icon: "🎓",
+  title: "My Education",
+  description: "Here’s a snapshot of my academic background and qualifications.",
   items: [
     {
       institution: "The American College",
-      degree: "Frontend Developer",
+      degree: "Bachelor of Computer Applications (BCA)",
       duration: "2017 - 2020"
-    }
+    },
+    // {
+    //   institution: "Harvard University",
+    //   degree: "Master of Science in Computer Science",
+    //   duration: "2021 - 2023"
+    // }
   ]
 }]
+
 const experience = [{
-  icon: "",
-  title: "My experience",
-  description: "orem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis vero sint temporibus atque exercitationem nam! ",
+  icon: "💼",
+  title: "My Experience",
+  description: "A summary of my professional journey and roles in various organizations.",
   items: [
     {
-      company: "Your Automation Technloligies",
+      company: "Your Automation Technologies",
       position: "Frontend Developer",
       duration: "2024 - Present"
-    }
+    },
+    // {
+    //   company: "Innovative Solutions Inc.",
+    //   position: "UI/UX Designer",
+    //   duration: "2021 - 2024"
+    // }
   ]
 }]
 
 const skils = [{
   title: "My Skils",
-  description: "orem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis vero sint temporibus atque exercitationem nam! ",
+  description: "A collection of technologies and tools I excel in, showcasing my proficiency in modern web development.",
   skilList: [
     {
       icon: <FaHtml5 />,

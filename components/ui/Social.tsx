@@ -24,7 +24,7 @@ const socials: SocialItem[] = [
   },
   {
     icon: <FaInstagram />,
-    path: "",
+    path: "https://www.instagram.com/tomuthu.engineer/?igsh=MWRldHY2YzhrZzlxcQ%3D%3D",
   },
 ];
 

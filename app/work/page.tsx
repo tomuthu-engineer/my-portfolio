@@ -39,9 +39,9 @@ const projects: Project[] = [
   {
     num: "01",
     category: "Frontend",
-    title: "project 01",
+    title: "CoffeeShop Website",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis enim neque fugit, cupiditate aliquam quisquam.",
+      "A responsive website for a coffee shop, featuring menu and contact details. Built with HTML5, CSS3, and JavaScript.",
     stack: [{ name: "Html 5" }, { name: "Css 3" }, { name: "Javascript" }],
     image: "/assets/images/work/pro-01.jpg",
     live: "",
@@ -50,9 +50,9 @@ const projects: Project[] = [
   {
     num: "02",
     category: "MobileApp",
-    title: "project 02",
+    title: "QRPay App",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis enim neque fugit, cupiditate aliquam quisquam.",
+      "A mobile app for secure payments via QR codes, developed with React Native and JavaScript.",
     stack: [{ name: "React native" }, { name: "Android" }, { name: "Javascript" }],
     image: "/assets/images/work/pro-02.jpg",
     live: "",
@@ -61,9 +61,9 @@ const projects: Project[] = [
   {
     num: "03",
     category: "FullStack",
-    title: "project 03",
+    title: "Expense Tracker",
     description:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis enim neque fugit, cupiditate aliquam quisquam.",
+      "A full-stack app to track expenses, featuring real-time data and user authentication. Built with Next.js and Express.js",
     stack: [{ name: "Next.js" }, { name: "Express.js" }, { name: "Javascript" }],
     image: "/assets/images/work/pro-03.jpg",
     live: "",
