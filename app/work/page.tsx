@@ -43,7 +43,7 @@ const projects: Project[] = [
     description:
       "A responsive website for a coffee shop, featuring menu and contact details. Built with HTML5, CSS3, and JavaScript.",
     stack: [{ name: "Html 5" }, { name: "Css 3" }, { name: "Javascript" }],
-    image: "/assets/images/work/pro-01.jpg",
+    image: "/assets/work/coffee.png",
     live: "",
     github: "",
   },
@@ -54,7 +54,7 @@ const projects: Project[] = [
     description:
       "A mobile app for secure payments via QR codes, developed with React Native and JavaScript.",
     stack: [{ name: "React native" }, { name: "Android" }, { name: "Javascript" }],
-    image: "/assets/images/work/pro-02.jpg",
+    image: "/assets/work/qrcode.png",
     live: "",
     github: "",
   },
@@ -65,7 +65,7 @@ const projects: Project[] = [
     description:
       "A full-stack app to track expenses, featuring real-time data and user authentication. Built with Next.js and Express.js",
     stack: [{ name: "Next.js" }, { name: "Express.js" }, { name: "Javascript" }],
-    image: "/assets/images/work/pro-03.jpg",
+    image: "/assets/work/etracker.png",
     live: "",
     github: "",
   },
