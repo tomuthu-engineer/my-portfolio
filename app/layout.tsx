@@ -3,6 +3,7 @@ import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 // Components
 import Header from "@/components/Header";
+import GoogleAnalytics from "@/components/GoogleAnlytics";
 
 const JetBrainsMono = JetBrains_Mono({
   subsets: ["latin"],
@@ -52,6 +53,7 @@ export default function RootLayout({
       </head>
       <body className={JetBrainsMono.variable}>
         <Header />
+        <GoogleAnalytics />
         {children}
       </body>
     </html>
