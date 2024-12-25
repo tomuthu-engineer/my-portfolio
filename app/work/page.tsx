@@ -17,6 +17,7 @@ import {
 
 import Link from "next/link";
 import Image from "next/image";
+import Head from "next/head";
 
 // Type definitions for project stack items and project structure
 interface StackItem {
@@ -53,7 +54,11 @@ const projects: Project[] = [
     title: "QRPay App",
     description:
       "A mobile app for secure payments via QR codes, developed with React Native and JavaScript.",
-    stack: [{ name: "React native" }, { name: "Android" }, { name: "Javascript" }],
+    stack: [
+      { name: "React native" },
+      { name: "Android" },
+      { name: "Javascript" },
+    ],
     image: "/assets/work/qrcode.png",
     live: "",
     github: "",
@@ -64,7 +69,11 @@ const projects: Project[] = [
     title: "Expense Tracker",
     description:
       "A full-stack app to track expenses, featuring real-time data and user authentication. Built with Next.js and Express.js",
-    stack: [{ name: "Next.js" }, { name: "Express.js" }, { name: "Javascript" }],
+    stack: [
+      { name: "Next.js" },
+      { name: "Express.js" },
+      { name: "Javascript" },
+    ],
     image: "/assets/work/etracker.png",
     live: "",
     github: "",
@@ -81,98 +90,137 @@ const Work: React.FC = () => {
   };
 
   return (
-    <motion.section
-      initial={{ opacity: 0 }}
-      animate={{
-        opacity: 1,
-        transition: { delay: 2.4, duration: 0.4, ease: "easeIn" },
-      }}
-      className="min-h-[80vh] flex flex-col justify-center py-12 xl:px-0"
-    >
-      <div className="container mx-auto">
-        <div className="flex flex-col xl:flex-row xl:gap-[30px]">
-          <div className="w-full xl:w-[50%] xl:h-[460px] flex flex-col xl:justify-between order-2 xl:order-none">
-            <div className="flex flex-col gap-[30px] h-[50%]">
-              <div className="text-8xl leading-none font-extrabold  text-outline">
-                {project.num}
-              </div>
-              <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
-                {project.category} project
-              </h2>
-              <p className="text-white/60">{project.description}</p>
-              <ul className="flex gap-4">
-                {project.stack.map((item, index) => {
-                  return (
-                    <li key={index} className="text-xl text-accent">
-                      {item.name}
-                      {index !== project.stack.length - 1 && ","}
-                    </li>
-                  );
-                })}
-              </ul>
-              <div className="border border-white/20"></div>
-              <div className="flex items-center gap-4">
-                <Link href={project.live} passHref>
-                  <TooltipProvider delayDuration={100}>
-                    <Tooltip>
-                      <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
-                        <BsArrowUpRight className="text-white text-3xl group-hover:text-accent" />
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>Live Project</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                </Link>
-                <Link href={project.github} passHref>
-                  <TooltipProvider delayDuration={100}>
-                    <Tooltip>
-                      <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
-                        <BsGithub className="text-white text-3xl group-hover:text-accent" />
-                      </TooltipTrigger>
-                      <TooltipContent>
-                        <p>Github Repository</p>
-                      </TooltipContent>
-                    </Tooltip>
-                  </TooltipProvider>
-                </Link>
+    <>
+      {/* SEO Metadata */}
+      <Head>
+        <title>Muthupandi's Portfolio | Work</title>
+        <meta
+          name="description"
+          content="Explore Muthupandi's projects, including CoffeeShop Website, QRPay App, and Expense Tracker. Designed with HTML, CSS, React Native, Next.js, and more."
+        />
+        <meta
+          name="keywords"
+          content="Muthupandi, Portfolio, Projects, Work, CoffeeShop Website, QRPay App, Expense Tracker, Full-stack Development"
+        />
+        <meta name="author" content="Muthupandi" />
+        <meta name="robots" content="index, follow" />
+
+        {/* Open Graph (OG) Meta Tags */}
+        <meta property="og:title" content="Muthupandi's Portfolio | Work" />
+        <meta
+          property="og:description"
+          content="Discover Muthupandi's latest projects, from frontend websites to full-stack applications. Explore the details and technologies behind each project."
+        />
+        <meta property="og:image" content="/assets/work/preview.jpg" />
+        <meta property="og:url" content="https://muthupandi.in/work" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="Muthupandi's Portfolio" />
+        <meta property="og:locale" content="en_US" />
+
+        {/* Twitter Card Meta Tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="Muthupandi's Portfolio | Work" />
+        <meta
+          name="twitter:description"
+          content="Discover Muthupandi's latest projects, from frontend websites to full-stack applications. Explore the details and technologies behind each project."
+        />
+        <meta name="twitter:image" content="/assets/work/preview.jpg" />
+      </Head>
+
+      {/* Page Content */}
+      <motion.section
+        initial={{ opacity: 0 }}
+        animate={{
+          opacity: 1,
+          transition: { delay: 2.4, duration: 0.4, ease: "easeIn" },
+        }}
+        className="min-h-[80vh] flex flex-col justify-center py-12 xl:px-0"
+      >
+        <div className="container mx-auto">
+          <div className="flex flex-col xl:flex-row xl:gap-[30px]">
+            <div className="w-full xl:w-[50%] xl:h-[460px] flex flex-col xl:justify-between order-2 xl:order-none">
+              <div className="flex flex-col gap-[30px] h-[50%]">
+                <div className="text-8xl leading-none font-extrabold  text-outline">
+                  {project.num}
+                </div>
+                <h2 className="text-[42px] font-bold leading-none text-white group-hover:text-accent transition-all duration-500 capitalize">
+                  {project.category} project
+                </h2>
+                <p className="text-white/60">{project.description}</p>
+                <ul className="flex gap-4">
+                  {project.stack.map((item, index) => {
+                    return (
+                      <li key={index} className="text-xl text-accent">
+                        {item.name}
+                        {index !== project.stack.length - 1 && ","}
+                      </li>
+                    );
+                  })}
+                </ul>
+                <div className="border border-white/20"></div>
+                <div className="flex items-center gap-4">
+                  <Link href={project.live} passHref>
+                    <TooltipProvider delayDuration={100}>
+                      <Tooltip>
+                        <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
+                          <BsArrowUpRight className="text-white text-3xl group-hover:text-accent" />
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>Live Project</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                  </Link>
+                  <Link href={project.github} passHref>
+                    <TooltipProvider delayDuration={100}>
+                      <Tooltip>
+                        <TooltipTrigger className="w-[70px] h-[70px] rounded-full bg-white/5 flex justify-center items-center group">
+                          <BsGithub className="text-white text-3xl group-hover:text-accent" />
+                        </TooltipTrigger>
+                        <TooltipContent>
+                          <p>Github Repository</p>
+                        </TooltipContent>
+                      </Tooltip>
+                    </TooltipProvider>
+                  </Link>
+                </div>
               </div>
             </div>
-          </div>
-          <div className="w-full xl:w-[50%]">
-            <Swiper
-              spaceBetween={30}
-              slidesPerView={1}
-              className="xl:h-[520px] mb-12"
-              onSlideChange={handleSlideChange}
-            >
-              {projects.map((item, index) => {
-                return (
-                  <SwiperSlide key={index} className="w-full">
-                    <div className="h-[460px] relative flex group justify-center items-center bg-pink-50/20">
-                      <div className="absolute top-0 bottom-0 w-full h-full bg-black/10 z-10"></div>
-                      <div className="relative w-full h-full">
-                        <Image
-                          src={project.image}
-                          fill
-                          className="object-cover"
-                          alt=""
-                        />
+            <div className="w-full xl:w-[50%]">
+              <Swiper
+                spaceBetween={30}
+                slidesPerView={1}
+                className="xl:h-[520px] mb-12"
+                onSlideChange={handleSlideChange}
+              >
+                {projects.map((item, index) => {
+                  return (
+                    <SwiperSlide key={index} className="w-full">
+                      <div className="h-[460px] relative flex group justify-center items-center bg-pink-50/20">
+                        <div className="absolute top-0 bottom-0 w-full h-full bg-black/10 z-10"></div>
+                        <div className="relative w-full h-full">
+                          <Image
+                            src={project.image}
+                            fill
+                            className="object-cover"
+                            alt=""
+                          />
+                        </div>
                       </div>
-                    </div>
-                  </SwiperSlide>
-                );
-              })}
-              <WorkSliderBtns
-                containerStyles="flex gap-2 absolute right-0 bottom-[calc(50%_-_22px)] xl:bottom-0 z-20 w-full justify-between xl:w-max xl:justify-none"
-                btnStyles="bg-accent hover:bg-accent-hover text-primary text-[22px] w-[44px] h-[44px] flex justify-center items-center transition-all"
-                iconStyles=""
-              />
-            </Swiper>
+                    </SwiperSlide>
+                  );
+                })}
+                <WorkSliderBtns
+                  containerStyles="flex gap-2 absolute right-0 bottom-[calc(50%_-_22px)] xl:bottom-0 z-20 w-full justify-between xl:w-max xl:justify-none"
+                  btnStyles="bg-accent hover:bg-accent-hover text-primary text-[22px] w-[44px] h-[44px] flex justify-center items-center transition-all"
+                  iconStyles=""
+                />
+              </Swiper>
+            </div>
           </div>
         </div>
-      </div>
-    </motion.section>
+      </motion.section>
+    </>
   );
 };
 
