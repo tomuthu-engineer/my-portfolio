@@ -8,6 +8,8 @@ const GoogleAnalytics = () => {
     // Ensure the GA script is loaded and initialized with the dynamic tracking ID
     const trackingId = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID;
 
+    console.log('first',trackingId)
+
     if (trackingId && typeof window !== "undefined") {
       window.gtag("config", trackingId);
     }
