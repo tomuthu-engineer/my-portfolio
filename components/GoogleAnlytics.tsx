@@ -1,35 +1,27 @@
-"use client";
-
+"use client"
 import { useEffect } from "react";
 import Script from "next/script";
 
 const GoogleAnalytics = () => {
-  useEffect(() => {
-    const trackingId = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID;
+  const trackingId = "G-VR46HEX6FN"; // Directly hard-coded tracking ID
 
-    // Define the gtag function globally, outside any block
+  useEffect(() => {
     if (typeof window !== "undefined") {
       window.dataLayer = window.dataLayer || [];
-    }
-
-    const gtag = (...args: any[]) => {
-      if (typeof window !== "undefined") {
-        window.dataLayer.push(args);
-      }
-    };
-
-    if (trackingId) {
-      gtag("js", new Date());
-      gtag("config", trackingId);
+      window.gtag = function gtag() {
+        window.dataLayer.push(arguments);
+      };
+      window.gtag("js", new Date());
+      window.gtag("config", trackingId);
     }
   }, []);
 
   return (
     <>
-      {/* Google Analytics Script */}
+      {/* Load Google Analytics Script */}
       <Script
         async
-        src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}`}
+        src={`https://www.googletagmanager.com/gtag/js?id=${trackingId}`}
         strategy="afterInteractive"
       />
       <Script
@@ -40,7 +32,7 @@ const GoogleAnalytics = () => {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', '${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}');
+            gtag('config', '${trackingId}');
           `,
         }}
       />
