@@ -1,17 +1,26 @@
-"use client"
+"use client";
 
 import { useEffect } from "react";
 import Script from "next/script";
 
 const GoogleAnalytics = () => {
   useEffect(() => {
-    // Ensure the GA script is loaded and initialized with the dynamic tracking ID
     const trackingId = process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID;
 
-    console.log('first',trackingId)
+    // Define the gtag function globally, outside any block
+    if (typeof window !== "undefined") {
+      window.dataLayer = window.dataLayer || [];
+    }
 
-    if (trackingId && typeof window !== "undefined") {
-      window.gtag("config", trackingId);
+    const gtag = (...args: any[]) => {
+      if (typeof window !== "undefined") {
+        window.dataLayer.push(args);
+      }
+    };
+
+    if (trackingId) {
+      gtag("js", new Date());
+      gtag("config", trackingId);
     }
   }, []);
 
@@ -21,7 +30,7 @@ const GoogleAnalytics = () => {
       <Script
         async
         src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS_ID}`}
-        strategy="afterInteractive" // Ensure it's loaded after the page is interactive
+        strategy="afterInteractive"
       />
       <Script
         id="google-analytics"
