@@ -15,6 +15,8 @@ import {
 } from "@/components/ui/select";
 import { FaPhoneAlt, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import { motion } from "framer-motion";
+import { useState } from "react";
+import emailjs from "@emailjs/browser";
 
 const info = [
   {
@@ -35,6 +37,44 @@ const info = [
 ];
 
 const Contact = () => {
+  const [formData, setFormData] = useState({
+    firstname: "",
+    lastname: "",
+    email: "",
+    phone: "",
+    service: "",
+    message: "",
+  });
+
+  const [status, setStatus] = useState("");
+
+  const handleChange = (e: any) => {
+    const { name, value } = e.target;
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+  };
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setStatus("Sending...");
+
+    try {
+      const result = await emailjs.send(
+        "serv5ice_yxz6nl", // Your EmailJS Service ID
+        "template_bmli0ga", // Your EmailJS Template ID
+        formData,
+        "y7by33hGJoyOK1DNR"
+      );
+      console.log(result.text);
+      setStatus("Message sent successfully!");
+    } catch (error) {
+      console.error("Error sending email:", error);
+      setStatus("Failed to send message.");
+    }
+  };
+
   const structuredData = {
     "@context": "https://schema.org",
     "@type": "ContactPage",
@@ -114,38 +154,73 @@ const Contact = () => {
         <div className="container mx-auto xl:py-0">
           <div className="flex flex-col xl:flex-row gap-[30px]">
             <div className="xl:w-[54%] order-2 xl:order-none">
-              <form className="flex flex-col gap-4 p-10 xl:py-4 bg-[#27272c] rounded-xl">
+              <form
+                onSubmit={handleSubmit}
+                className="flex flex-col gap-4 p-10 xl:py-4 bg-[#27272c] rounded-xl"
+              >
                 <h3 className="text-4xl text-accent">Let's work together</h3>
                 <p className="text-white/40">
                   Have a project or question? Fill out the form and I'll respond
                   promptly.
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <Input type="firstname" placeholder="Firstname" />
-                  <Input type="lastname" placeholder="Lastname" />
-                  <Input type="email" placeholder="Email address" />
-                  <Input type="phone" placeholder="Phone number" />
+                  <Input
+                    type="text"
+                    name="firstname"
+                    value={formData.firstname}
+                    onChange={handleChange}
+                    placeholder="Firstname"
+                  />
+                  <Input
+                    type="text"
+                    name="lastname"
+                    value={formData.lastname}
+                    onChange={handleChange}
+                    placeholder="Lastname"
+                  />
+                  <Input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleChange}
+                    placeholder="Email address"
+                  />
+                  <Input
+                    type="phone"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    placeholder="Phone number"
+                  />
                 </div>
-                <Select>
+                <Select
+                  name="service"
+                  value={formData.service}
+                  onValueChange={handleChange}
+                >
                   <SelectTrigger className="w-full">
                     <SelectValue placeholder="Select a Service" />
                   </SelectTrigger>
                   <SelectContent>
                     <SelectGroup>
                       <SelectLabel>Select a Service</SelectLabel>
-                      <SelectItem value="est">Web Development</SelectItem>
-                      <SelectItem value="cst">App Development</SelectItem>
-                      <SelectItem value="mst">UI&UX Design</SelectItem>
+                      <SelectItem value="web-dev">Web Development</SelectItem>
+                      <SelectItem value="app-dev">App Development</SelectItem>
+                      <SelectItem value="ui-ux">UI/UX Design</SelectItem>
                     </SelectGroup>
                   </SelectContent>
                 </Select>
                 <Textarea
                   className="h-[150px]"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
                   placeholder="Type your message here"
                 />
                 <Button size="lg" className="max-w-40">
                   Send message
                 </Button>
+                {status && <p>{status}</p>}
               </form>
             </div>
             <div className="flex-1 flex items-center xl:justify-end order-1 xl:order-none mb-8 xl:mb-0">
