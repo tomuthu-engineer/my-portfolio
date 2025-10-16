@@ -63,9 +63,9 @@ const experience = [
       "A summary of my professional journey and roles in various organizations.",
     items: [
       {
-        company: "Your Automation Technologies",
+        company: "Dastin technologies",
         position: "Frontend Developer",
-        duration: "2024 - Present",
+        duration: "2024",
       },
     ],
   },
