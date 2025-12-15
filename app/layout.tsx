@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 // Components
-import Header from "@/components/Header";
+// import Header from "@/components/Header";
 import GoogleAnalytics from "@/components/GoogleAnlytics";
 
 const JetBrainsMono = JetBrains_Mono({
@@ -52,7 +52,7 @@ export default function RootLayout({
         <meta name="twitter:image" content="/images/portfolio-thumbnail.jpg" />
       </head>
       <body className={JetBrainsMono.variable}>
-        <Header />
+        {/* <Header /> */}
         <GoogleAnalytics />
         {children}
       </body>
